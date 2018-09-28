@@ -29,7 +29,6 @@ async.eachSeries(addresses, function(value, callback) {
 
             console.log(tamuGeo['FeatureMatchingResultType']);
             //push data into array for Lat/Long Objects
-            //meetingsData.push(tamuGeo);
             meetingsData.push(geoAPI);
 
         }
@@ -45,6 +44,3 @@ async.eachSeries(addresses, function(value, callback) {
 
   }
 );
-
-
-// add more time to 2000 - 3000 = 3 seconds, 4000 = 4 seconds
