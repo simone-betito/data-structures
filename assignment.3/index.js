@@ -8,12 +8,8 @@ var meetingsData = [];
 
 
 //load addresses from week 2
-var data = JSON.parse(fs.readFileSync('data-structures/assignment.2/finalAddress.json'));
-console.log(data);
-
-//var addresses = [];
-addresses.push(data);
-console.log(addresses);
+var addresses = JSON.parse(fs.readFileSync('finalAddress.json'));
+//console.log(addresses);
 
 // eachSeries in the async module iterates over an array and operates on each item in the array in series
 async.eachSeries(addresses, function(value, callback) {
@@ -26,19 +22,20 @@ async.eachSeries(addresses, function(value, callback) {
         if (err) {throw err;}
         else {
             var tamuGeo = JSON.parse(body);
-            //push data into array for Lat/Long Objects
-            meetingsData.push(tamuGeo);
-            streetAddress: tamuGeo["InputAddress"]["StreetAddress"],
-          latLong: {
-            latitude: tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Latitude"],
-            longitude: tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Longitude"]
+            let geoAPI = {}
+            geoAPI.street = tamuGeo.InputAddress.StreetAddress
+            geoAPI.lat = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Latitude"]
+            geoAPI.lon = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Longitude"]
+
             console.log(tamuGeo['FeatureMatchingResultType']);
+            //push data into array for Lat/Long Objects
+            //meetingsData.push(tamuGeo);
+            meetingsData.push(geoAPI);
+
         }
     });
 
-
-
-    setTimeout(callback, 2000); //change if you don't have 28 addresses, see below
+    setTimeout(callback, 2000);
   },
   function() {
     fs.writeFileSync('first.json', JSON.stringify(meetingsData));
