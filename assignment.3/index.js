@@ -49,7 +49,5 @@ async.eachSeries(addresses, function(value, callback) {
   }
 );
 
-//SimoneBMacBook2:assignment.3 SimoneBetito$ export NEW_VAR="78bc8dd586c24dd69878f6fa1b1bcee3"
-// SimoneBMacBook2:assignment.3 SimoneBetito$ printenv | grep NEW_VAR
-// NEW_VAR=78bc8dd586c24dd69878f6fa1b1bcee3 - delete when you upload to github!!
+
 // add more time to 2000 - 3000 = 3 seconds, 4000 = 4 seconds
