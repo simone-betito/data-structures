@@ -24,8 +24,8 @@ async.eachSeries(addresses, function(value, callback) {
             var tamuGeo = JSON.parse(body);
             let geoAPI = {}
             geoAPI.street = tamuGeo.InputAddress.StreetAddress
-            geoAPI.lat = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Latitude"]
-            geoAPI.lon = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Longitude"]
+            geoAPI.Latitude = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Latitude"]
+            geoAPI.Longitude = tamuGeo.OutputGeocodes[0]["OutputGeocode"]["Longitude"]
 
             console.log(tamuGeo['FeatureMatchingResultType']);
             //push data into array for Lat/Long Objects
