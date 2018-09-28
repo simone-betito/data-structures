@@ -16,13 +16,16 @@ var $ = cheerio.load(content);
 var finalAddress = [];
 var Addresses;
 
-// print (to the console) names of thesis students
+// print (to the console)
 $('td').each(function(i, elem) { // td guarantee way to get to addresses
 
   if ($(elem).attr("style")  == "border-bottom:1px solid #e3e3e3; width:260px") { //styling being unique to table containing addresses
   Addresses = $(elem).html().split('<br>')[2].trim().split(',')[0]; //+"\n" <- adds new line marker
   //let cleanData = Addresses.substring(0, Addresses.indexOf(","))
   //console.log(Addresses);
+    //remove (basement) from JSON object
+    if (Addresses == "230 East 60th Street (Basement)") {Addresses == "230 East 60th Street"}
+
   finalAddress.push(Addresses);
 
   }
