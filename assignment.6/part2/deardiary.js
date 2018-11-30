@@ -1,14 +1,14 @@
 // npm install aws-sdk
 var AWS = require('aws-sdk');
 AWS.config = new AWS.Config();
-AWS.config.accessKeyId = "AKIAJXE2AAIB6WIW26BA";
-AWS.config.secretAccessKey = process.env.AWSRDS_PW;
+AWS.config.accessKeyId = "AKIAIV6S4UXKQZOZMMOA";
+AWS.config.secretAccessKey =  "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";
 AWS.config.region = 'us-east-1';
 
 var dynamodb = new AWS.DynamoDB();
 
 var params = {
-    TableName : 'newdeardiary',
+    TableName : 'deardiary',
 
     //Use the KeyConditionExpression parameter to provide a specific value for the partition key
     'KeyConditionExpression': '#dt = :date AND #art = :artist',

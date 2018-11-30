@@ -4,16 +4,16 @@ var fs = require('fs');
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
-db_credentials.user = 'simoneb';
-db_credentials.host = 'msdvdatastruc.cclilxizzkkf.us-east-1.rds.amazonaws.com';
-db_credentials.database = 'msdvdatastruc';
-db_credentials.password = "database123";
+db_credentials.user = 'betis855';
+db_credentials.host = "msdvdatastruc.cclilxizzkkf.us-east-1.rds.amazonaws.com";
+db_credentials.database = 'msdvDataStruc';
+db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
 
 // const client = new Client(db_credentials);
 // client.connect();
-// var thisQuery = "SELECT * FROM aalocations1;";
+// var thisQuery = "SELECT * FROM msdvdatastruc;";
 
 // client.query(thisQuery, (err, res) => {
 //     console.log(err, res);
@@ -60,13 +60,13 @@ async.eachSeries(addressesForDb, function(value, callback) {
     const client = new Client(db_credentials);
     client.connect();
     //var thisQuery = "INSERT INTO aalocations1 VALUES (E'" + value.Address + "', " + value.Lat + ", " + value.Long + ");";
-    //var thisQuery = "SELECT * FROM aalocations1;";
+    //var thisQuery = "SELECT * FROM 	msdvdatastruc;";
 
-// var thisQuery = "INSERT INTO aalocations1 VALUES (E" + value.oldAddress + "', " + value.newAddress + ", " + value.lat +  ", " + value.long +  ", " + value.title +  ", " + value.wheelc + ", " + value.meetings.length +  ", " + value.meetings[0][0] + ", " + value.meetings[0][1] + ", " + value.meetings[0][2] + ");";
+// var thisQuery = "INSERT INTO msdvdatastruc VALUES (E" + value.oldAddress + "', " + value.newAddress + ", " + value.lat +  ", " + value.long +  ", " + value.title +  ", " + value.wheelc + ", " + value.meetings.length +  ", " + value.meetings[0][0] + ", " + value.meetings[0][1] + ", " + value.meetings[0][2] + ");";
 
-        // var thisQuery = "INSERT INTO aalocations1 (oldAddress, newAddress, lat, long, title, wheelc, meetings, day, startTime,endTime) VALUES (value.oldAddress,value.newAddress,value.lat,value.long,value.title,value.wheelc,i,value.meetings[i][0],value.meetings[i][1]+,value.meetings[i][2]);";
+        // var thisQuery = "INSERT INTO msdvdatastruc (oldAddress, newAddress, lat, long, title, wheelc, meetings, day, startTime,endTime) VALUES (value.oldAddress,value.newAddress,value.lat,value.long,value.title,value.wheelc,i,value.meetings[i][0],value.meetings[i][1]+,value.meetings[i][2]);";
 
-        var thisQuery = "INSERT INTO aalocations1 VALUES ('"+ value.oldAddress + "', '" + value.newAddress+ "','" +value.lat+ "','" +value.long+ "','" +value.title+ "','" +value.wheelc+ "','" +value.meetings.length+ "','" +value.meetings[i][0]+ "','" +value.meetings[i][1]+ "', '" +value.meetings[i][2]+ "','" + value.details + "');";
+        var thisQuery = "INSERT INTO msdvdatastruc VALUES ('"+ value.oldAddress + "', '" + value.newAddress+ "','" +value.lat+ "','" +value.long+ "','" +value.title+ "','" +value.wheelc+ "','" +value.meetings.length+ "','" +value.meetings[i][0]+ "','" +value.meetings[i][1]+ "', '" +value.meetings[i][2]+ "','" + value.details + "');";
 
     client.query(thisQuery, (err, res) => {
         console.log(err, res);
