@@ -9,10 +9,10 @@ var device_url = 'https://api.particle.io/v1/devices/' + device_id + '/' + parti
 
 // AWS RDS POSTGRESQL INSTANCE
 var db_credentials = new Object();
-db_credentials.user = 'simoneb';
-db_credentials.host = 'dsdemo.c2g7qw1juwkg.us-east-1.rds.amazonaws.com';
-db_credentials.database = 'msdvdatastruc';
-db_credentials.password = "database123";
+db_credentials.user = 'betis855';
+db_credentials.host = process.env.AWSRDS_EP;
+db_credentials.database = 'msdvDataStruc';
+db_credentials.password = process.env.AWSRDS_PW;
 db_credentials.port = 5432;
 
 var getAndWriteData = function() {
@@ -23,21 +23,21 @@ var getAndWriteData = function() {
         // Store sensor value(s) in a variable
         var sv = JSON.parse(body).result;
 
-        // Convert 1/0 to TRUE/FALSE for the Postgres INSERT INTO statement
-        var sv_mod;
-        if (sv == 1) {
-            sv_mod = "TRUE";
-        }
-        else if (sv == 0) {
-            sv_mod = "FALSE";
-        }
+        // // Convert 1/0 to TRUE/FALSE for the Postgres INSERT INTO statement
+        // var sv_mod;
+        // if (sv == 1) {
+        //     sv_mod = "TRUE";
+        // }
+        // else if (sv == 0) {
+        //     sv_mod = "FALSE";
+        // }
 
         // Connect to the AWS RDS Postgres database
         const client = new Client(db_credentials);
         client.connect();
 
         // Construct a SQL statement to insert sensor values into a table
-        var thisQuery = "INSERT INTO sensorData VALUES (" + sv_mod + ", DEFAULT);";
+        var thisQuery = "INSERT INTO sensorDataFinal VALUES (" + sv + ", DEFAULT);";
         console.log(thisQuery); // for debugging
 
         // Connect to the AWS RDS Postgres database and insert a new row of sensor values
