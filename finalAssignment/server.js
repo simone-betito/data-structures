@@ -48,6 +48,7 @@ var s1x = `<!DOCTYPE html>
 <body>
 <script src="http://d3js.org/d3.v3.min.js"></script>
 <script src="http://labratrevenge.com/d3-tip/javascripts/d3.tip.v0.6.3.js"></script>
+<h2 class="title">Measuring my plant's temperature</h2>
 <script>
 var data = `;
 
@@ -185,14 +186,18 @@ var oneDD = `<!doctype html>
   <meta name="description" content="Simone's Dear Diary Entries">
   <meta name="author" content="DD">
   <link rel="stylesheet" href="css/DDstyles.css">
-  <link href="https://fonts.googleapis.com/css?family=IBM+Plex+Mono:400,600" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Domine|Montserrat" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
 </head>
 <body>
 <div class="container">
+<div class ="border">
     <h2 class="title">A Month In Inspiration</h2>
     <div class="main">
         <div class="sidebar">
-            <p>By: <strong>Simone Betito</strong></p>
+            <p>By: Simone Betito</p>
+
+            <p>Sort the below by topic</p>
             <hr align="right">
             <ul>
                 <form action="/action_page.php">
@@ -213,6 +218,7 @@ var oneDD = `<!doctype html>
         </div>
     </div>
 </div>
+<p>I spent most of my time admiring <b>architecture</b>.
   <script>
 
   var data =
